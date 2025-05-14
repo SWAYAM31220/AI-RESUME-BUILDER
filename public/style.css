@@ -1,0 +1,86 @@
+/* 1) Make html/body fill the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* 2) Apply the anime bg to the entire page */
+body {
+  background: url('/assets/hero_bg.jpg') center/cover no-repeat fixed;
+  /* “fixed” keeps it in place during scroll; omit if you want scroll */
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* 3) Make header transparent so body bg shows through */
+.homepage-hero {
+  background: transparent !important;
+  height: auto;           /* Let header size to its content */
+  padding: 3rem 1rem;     /* Add some vertical space */
+}
+
+/* Overlay text drop‐shadow for readability */
+.homepage-hero h1 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* FORM Buttons */
+.tpl-btn {
+  flex: 1;
+  text-center;
+  padding: 0.5rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: #4b5563;
+  background: white;
+  transition: all 0.2s;
+}
+.tpl-btn:hover {
+  border-color: #6366f1;
+  color: #4f46e5;
+}
+.tpl-btn.active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: white;
+}
+
+/* Preview text */
+#preview h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+#preview h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+#preview h2 i {
+  margin-right: 0.5rem;
+  color: #4f46e5;
+}
+#preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+#preview th,
+#preview td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+}
+#preview pre {
+  white-space: pre-wrap;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Loading overlay */
+#loading {
+  backdrop-filter: blur(2px);
+}
