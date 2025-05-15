@@ -1,95 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Resume Builder</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- HERO -->
-  <header class="homepage-hero flex items-center justify-center">
-    <h1 class="relative z-10 text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-      AI Resume Builder
-    </h1>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading AI Builder...</p>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <h1 class="title">AI Resume Builder</h1>
+    <p class="subtitle">Generate smart resumes powered by AI magic</p>
+    <a href="#form" class="scroll-btn">Get Started ↓</a>
   </header>
 
-  <!-- MAIN -->
-  <main class="max-w-6xl mx-auto px-6 py-12 grid gap-12 lg:grid-cols-2">
+  <!-- Form Section -->
+  <section id="form" class="form-section">
+    <form id="resumeForm">
+      <h2>Enter Details</h2>
+      <input type="text" placeholder="Full Name" required />
+      <input type="text" placeholder="Position" required />
+      <textarea placeholder="Your Experience, Skills, Projects" rows="6" required></textarea>
+      <button type="submit">Generate Resume</button>
+    </form>
+  </section>
 
-    <!-- FORM -->
-    <section class="bg-white rounded-xl shadow-md p-8 space-y-6">
-      <h2 class="text-2xl font-semibold">Your Details</h2>
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Resume Builder</title>
 
-      <form id="resume-form" class="space-y-4">
-        <div class="relative">
-          <i data-feather="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          <input type="text" id="name" placeholder="Full Name"
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-            required/>
-        </div>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading AI Builder...</p>
+  </div>
 
-        <div class="relative">
-          <i data-feather="briefcase" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          <textarea id="experience" rows="3" placeholder="Experience (e.g. 5 years…)"
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-            required></textarea>
-        </div>
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <h1 class="title">AI Resume Builder</h1>
+    <p class="subtitle">Generate smart resumes powered by AI magic</p>
+    <a href="#form" class="scroll-btn">Get Started ↓</a>
+  </header>
 
-        <div class="relative">
-          <i data-feather="settings" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          <textarea id="skills" rows="2" placeholder="Skills (e.g. Python, C++)"
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-            required></textarea>
-        </div>
+  <!-- Form Section -->
+  <section id="form" class="form-section">
+    <form id="resumeForm">
+      <h2>Enter Details</h2>
+      <input type="text" placeholder="Full Name" required />
+      <input type="text" placeholder="Position" required />
+      <textarea placeholder="Your Experience, Skills, Projects" rows="6" required></textarea>
+      <button type="submit">Generate Resume</button>
+    </form>
+  </section>
 
-        <div class="relative">
-          <i data-feather="book-open" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          <textarea id="education" rows="2" placeholder="Education (e.g. B.Sc…)"
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-            required></textarea>
-        </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Resume Builder</title>
 
-        <button type="submit"
-          class="relative w-full inline-flex items-center justify-center bg-indigo-600 text-white font-medium rounded-lg py-2 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-          <i data-feather="play" class="w-5 h-5 mr-2"></i>
-          Generate & Preview
-        </button>
-      </form>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading AI Builder...</p>
+  </div>
 
-      <button id="download-btn"
-        class="mt-4 w-full inline-flex items-center justify-center bg-gray-800 text-white font-medium rounded-lg py-2 hover:bg-gray-900 disabled:opacity-50 transition"
-        disabled>
-        <i data-feather="download" class="w-5 h-5 mr-2"></i>
-        Download PDF
-      </button>
-    </section>
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <h1 class="title">AI Resume Builder</h1>
+    <p class="subtitle">Generate smart resumes powered by AI magic</p>
+    <a href="#form" class="scroll-btn">Get Started ↓</a>
+  </header>
 
-    <!-- TEMPLATES + PREVIEW -->
-    <section class="space-y-4">
+  <!-- Form Section -->
+  <section id="form" class="form-section">
+    <form id="resumeForm">
+      <h2>Enter Details</h2>
+      <input type="text" placeholder="Full Name" required />
+      <input type="text" placeholder="Position" required />
+      <textarea placeholder="Your Experience, Skills, Projects" rows="6" required></textarea>
+      <button type="submit">Generate Resume</button>
+    </form>
+  </section>
 
-      <div class="flex space-x-4">
-        <button id="tpl-classic" class="tpl-btn active">Classic</button>
-        <button id="tpl-modern" class="tpl-btn">Modern</button>
-      </div>
-
-      <div id="preview"
-           class="bg-white rounded-xl shadow-md p-6 h-96 overflow-auto relative">
-        <!-- loading spinner -->
-        <div id="loading" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 hidden">
-          <i data-feather="loader" class="animate-spin w-10 h-10 text-indigo-600"></i>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- feather icons + pdf -->
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script>feather.replace()</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
