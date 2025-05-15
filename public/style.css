@@ -1,86 +1,113 @@
-/* 1) Make html/body fill the viewport */
-html, body {
-  height: 100%;
+/* Reset & Base */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
-
-/* 2) Apply the anime bg to the entire page */
 body {
-  background: url('/assets/hero_bg.jpg') center/cover no-repeat fixed;
-  /* “fixed” keeps it in place during scroll; omit if you want scroll */
-  font-family: 'Inter', sans-serif;
-  color: #333;
+  background: #0f0f1b;
+  color: #ffffff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* 3) Make header transparent so body bg shows through */
-.homepage-hero {
-  background: transparent !important;
-  height: auto;           /* Let header size to its content */
-  padding: 3rem 1rem;     /* Add some vertical space */
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh; width: 100%;
+  background: #0f0f1b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-/* Overlay text drop‐shadow for readability */
-.homepage-hero h1 {
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+.spinner {
+  border: 4px solid #333;
+  border-top: 4px solid #38bdf8;
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* FORM Buttons */
-.tpl-btn {
-  flex: 1;
-  text-center;
-  padding: 0.5rem 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  color: #4b5563;
-  background: white;
-  transition: all 0.2s;
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #0f172a, #1e1b4b);
+  text-align: center;
+  perspective: 1000px;
 }
-.tpl-btn:hover {
-  border-color: #6366f1;
-  color: #4f46e5;
+.title {
+  font-size: 3rem;
+  color: #38bdf8;
+  text-shadow: 0 0 10px #38bdf8;
+  transform: rotateX(5deg);
 }
-.tpl-btn.active {
+.subtitle {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  margin: 1rem 0;
+}
+.scroll-btn {
+  background: #6366f1;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.scroll-btn:hover {
   background: #4f46e5;
-  border-color: #4f46e5;
+}
+
+/* Form Section */
+.form-section {
+  background: #1e1b4b;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+input, textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #334155;
   color: white;
 }
-
-/* Preview text */
-#preview h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-#preview h2 {
-  display: flex;
-  align-items: center;
-  font-size: 1.125rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-#preview h2 i {
-  margin-right: 0.5rem;
-  color: #4f46e5;
-}
-#preview table {
+button {
+  background: #38bdf8;
+  color: black;
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
 }
-#preview th,
-#preview td {
-  border: 1px solid #e5e7eb;
-  padding: 0.5rem;
-}
-#preview pre {
-  white-space: pre-wrap;
-  background: #f9fafb;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-/* Loading overlay */
-#loading {
-  backdrop-filter: blur(2px);
+button:hover {
+  background: #0ea5e9;
 }
