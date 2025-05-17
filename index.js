@@ -9,6 +9,10 @@ cohere.init(process.env.COHERE_API_KEY);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/health', (req, res) => {
+  res.status(200).send('API is live!');
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
