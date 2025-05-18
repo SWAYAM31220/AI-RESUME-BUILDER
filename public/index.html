@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Resume Builder</title>
-<link rel="icon" type="image/png" href="./logo.png" />
-
+  <link rel="icon" type="image/png" href="./logo.png" />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -26,11 +25,24 @@
   <section id="form" class="form-section">
     <form id="resumeForm">
       <h2>Enter Details</h2>
-      <input type="text" placeholder="Full Name" required />
-      <input type="text" placeholder="Position" required />
-      <textarea placeholder="Your Experience, Skills, Projects" rows="6" required></textarea>
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="position" placeholder="Position" required />
+      <textarea id="experience" placeholder="Your Experience, Skills, Projects" rows="6" required></textarea>
       <button type="submit">Generate Resume</button>
     </form>
+  </section>
+
+  <!-- Template Selection & Preview Section -->
+  <section id="templates" class="templates-section hidden">
+    <h2>Select a Resume Template</h2>
+    <div class="template-cards">
+      <!-- Template Options will go here dynamically -->
+    </div>
+    <div id="resumePreview" class="resume-preview hidden">
+      <h3>Your Resume Preview</h3>
+      <div id="previewContent"></div>
+      <button id="downloadBtn" class="download-btn">Download Resume</button>
+    </div>
   </section>
 
   <script src="./script.js"></script>
