@@ -1,0 +1,21 @@
+.modern-template {
+  background: #f0f4f8;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modern-template h1 {
+  font-size: 2rem;
+  color: #38bdf8;
+}
+
+.modern-template h3 {
+  font-size: 1.2rem;
+  color: #334155;
+}
+
+.modern-template p {
+  font-size: 1rem;
+  color: #555;
+}
