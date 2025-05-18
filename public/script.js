@@ -1,49 +1,60 @@
-// Loader fade out after page loads
-window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
-});
+document.getElementById('resumeForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-// Handle form submission
-document.getElementById("resumeForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  // Get user input
+  const name = document.getElementById('name').value;
+  const position = document.getElementById('position').value;
+  const experience = document.getElementById('experience').value;
 
-  // Collect data
-  const inputs = this.querySelectorAll("input, textarea");
-  const data = {};
-  inputs.forEach(input => data[input.placeholder] = input.value);
+  // Show templates section
+  document.getElementById('templates').classList.remove('hidden');
 
-  // Show loading or disable button
-  const button = this.querySelector("button");
-  button.disabled = true;
-  button.innerText = "Generating...";
+  // Generate resume data
+  const resumeData = {
+    name: name,
+    position: position,
+    experience: experience,
+  };
 
-  fetch("/generate-resume", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  })
-  .then(res => {
-    if (!res.ok) throw new Error("Failed to generate resume");
-    return res.blob(); // Assuming backend sends PDF or file
-  })
-  .then(blob => {
-    // Create download link
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "resume.pdf";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.URL.revokeObjectURL(url);
+  // Populate template options
+  const templates = [
+    { name: "Modern", templateId: "modern", previewHtml: `<h4>${name} - ${position}</h4><p>${experience}</p>` },
+    { name: "Professional", templateId: "professional", previewHtml: `<h4>${name}</h4><p><strong>Position:</strong> ${position}</p><p>${experience}</p>` },
+  ];
 
-    button.innerText = "Generate Resume";
-    button.disabled = false;
-  })
-  .catch(err => {
-    alert("Something went wrong: " + err.message);
-    console.error(err);
-    button.innerText = "Generate Resume";
-    button.disabled = false;
+  const templateCardsContainer = document.querySelector('.template-cards');
+  templateCardsContainer.innerHTML = "";  // Clear previous templates
+
+  templates.forEach(template => {
+    const card = document.createElement('div');
+    card.className = 'template-card';
+    card.innerHTML = `
+      <h3>${template.name}</h3>
+      <button onclick="showPreview('${template.templateId}', '${template.previewHtml}')">Preview</button>
+    `;
+    templateCardsContainer.appendChild(card);
   });
 });
+
+// Show the resume preview in selected template
+function showPreview(templateId, previewHtml) {
+  const previewContent = document.getElementById('previewContent');
+  previewContent.innerHTML = previewHtml; // Insert preview content
+  
+  document.getElementById('resumePreview').classList.remove('hidden');
+
+  // Allow the user to download the resume
+  document.getElementById('downloadBtn').addEventListener('click', function() {
+    downloadResume(templateId);
+  });
+}
+
+// Download the resume (functionality for creating the file will be added)
+function downloadResume(templateId) {
+  const resumeContent = document.getElementById('previewContent').innerHTML;
+  const blob = new Blob([resumeContent], { type: 'text/html' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${templateId}_resume.html`;
+  link.click();
+}
