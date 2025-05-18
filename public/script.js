@@ -16,10 +16,12 @@ document.getElementById('resumeForm').addEventListener('submit', function(event)
     experience: experience,
   };
 
-  // Populate template options
+  // Populate template options with 4 different templates
   const templates = [
-    { name: "Modern", templateId: "modern", previewHtml: `<h4>${name} - ${position}</h4><p>${experience}</p>` },
-    { name: "Professional", templateId: "professional", previewHtml: `<h4>${name}</h4><p><strong>Position:</strong> ${position}</p><p>${experience}</p>` },
+    { name: "Modern", templateId: "modern", previewHtml: `<div class="modern-template"><h4>${name} - ${position}</h4><p>${experience}</p></div>` },
+    { name: "Professional", templateId: "professional", previewHtml: `<div class="professional-template"><h4>${name}</h4><p><strong>Position:</strong> ${position}</p><p>${experience}</p></div>` },
+    { name: "Creative", templateId: "creative", previewHtml: `<div class="creative-template"><h3>${name}</h3><p>${position}</p><p>${experience}</p></div>` },
+    { name: "Minimalist", templateId: "minimalist", previewHtml: `<div class="minimalist-template"><h3>${name}</h3><p class="minimalist-position">${position}</p><p>${experience}</p></div>` },
   ];
 
   const templateCardsContainer = document.querySelector('.template-cards');
@@ -40,21 +42,31 @@ document.getElementById('resumeForm').addEventListener('submit', function(event)
 function showPreview(templateId, previewHtml) {
   const previewContent = document.getElementById('previewContent');
   previewContent.innerHTML = previewHtml; // Insert preview content
-  
+
+  // Add template-specific styles
+  document.getElementById('previewContent').classList.add(templateId);
+
   document.getElementById('resumePreview').classList.remove('hidden');
 
-  // Allow the user to download the resume
+  // Allow the user to download the resume as PDF
   document.getElementById('downloadBtn').addEventListener('click', function() {
-    downloadResume(templateId);
+    downloadResumeAsPDF(templateId);
   });
 }
 
-// Download the resume (functionality for creating the file will be added)
-function downloadResume(templateId) {
+// Function to generate the resume as PDF
+function downloadResumeAsPDF(templateId) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
   const resumeContent = document.getElementById('previewContent').innerHTML;
-  const blob = new Blob([resumeContent], { type: 'text/html' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = `${templateId}_resume.html`;
-  link.click();
+
+  // Convert HTML to PDF content (using HTML2Canvas or directly if simple text)
+  doc.html(resumeContent, {
+    callback: function (doc) {
+      doc.save(`${templateId}_resume.pdf`);
+    },
+    x: 10,
+    y: 10
+  });
 }
