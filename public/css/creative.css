@@ -1,0 +1,23 @@
+.creative-template {
+  background: #ffcc00;
+  padding: 2rem;
+  border-radius: 8px;
+  font-family: 'Comic Sans MS', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.creative-template h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.creative-template h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.creative-template p {
+  font-size: 1rem;
+  color: #555;
+}
