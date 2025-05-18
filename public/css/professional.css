@@ -1,0 +1,21 @@
+.professional-template {
+  background: #f4f4f9;
+  padding: 1.5rem;
+  border-left: 4px solid #38bdf8;
+  text-align: left;
+}
+
+.professional-template h1 {
+  font-size: 2rem;
+  color: #334155;
+}
+
+.professional-template h3 {
+  font-size: 1.2rem;
+  color: #38bdf8;
+}
+
+.professional-template p {
+  font-size: 1rem;
+  color: #333;
+}
