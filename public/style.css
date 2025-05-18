@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
 }
+
 body {
   background: #0f0f1b;
   color: #ffffff;
@@ -146,4 +147,42 @@ button:hover {
 .resume-box button:hover,
 .error-box button:hover {
   background: #0ea5e9;
+}
+
+/* Template Section */
+#templates {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.template-card {
+  display: inline-block;
+  width: 200px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #334155;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.template-card:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Resume Preview */
+.resume-preview {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #fff;
+}
+.resume-preview button {
+  margin-top: 1rem;
 }
