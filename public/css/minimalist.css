@@ -1,0 +1,23 @@
+.minimalist-template {
+  background: #333;
+  color: #f4f4f9;
+  padding: 1.5rem;
+  border: none;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.minimalist-template h1 {
+  font-size: 2rem;
+  color: #f4f4f9;
+}
+
+.minimalist-template h3 {
+  font-size: 1.5rem;
+  color: #e2e8f0;
+}
+
+.minimalist-template p {
+  font-size: 1rem;
+  color: #e2e8f0;
+}
